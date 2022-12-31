@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="mdr" ng-controller="ctr">
+   Search by rows: <input type="number" min="0" max="3" step="1" ng-model="n">
+   <table>
+       <tr>
+           <th>Name</th>
+           <th>DOB</th>
+           <th>Gender</th>
+       </tr>
+       <tr ng-repeat="x in names| limitTo:n">
+        <th>{{x.Name}}</th>
+        <th>{{x.Dob|date:"dd/MM/yyyy"}}</th>
+        <th>{{x.gender|myfilter}}</th>
+    </tr>
+   </table> 
+    <script>
+        var app=angular.module("mdr",[]);
+        app.controller("ctr",function($scope){
+            $scope.names=[{Name:"Umar",Dob:new Date("August 13,2004"),gender:"Male"},
+            {Name:"Shahzaib",Dob:new Date("September 13,2001"),gender:"Male"},
+            {Name:"Umair",Dob:new Date("January 13,2000"),gender:"Male"}
+        ];  
+         $scope.n=3;
+    })
+        app.filter("myfilter",function(){
+                return function(gender){
+                 switch(gender){
+                     case "Male":
+                         return "M";
+                    case "Female":
+                        return "F";
+                 }
+                }
+        })
+    </script>
+</body>
+</html>

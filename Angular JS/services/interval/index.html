@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body >
+    <!-- Example1 -->
+    <div ng-app="mdr" ng-controller="ctr">
+        <h1>{{a}}</h1>
+    </div>
+    <script>
+        var app=angular.module("mdr",[]);
+        app.controller("ctr",function($scope,$interval){
+            $scope.a=0;
+            $interval(function(){
+                $scope.a++
+            },1000)
+        })
+    </script>
+
+
+                      <!-- Example2 -->
+    <!-- <div ng-app="mdr" ng-controller="ctr">
+        <h1>{{time}}</h1>
+    </div>
+  
+    <script>
+        var app=angular.module("mdr",[]);
+        app.controller("ctr",function($scope,$interval){
+            $scope.time=new Date().toLocaleTimeString();
+            // The toLocaleTimeString() method returns the time portion of a Date object as a string, using locale conventions.
+             $interval(function(){
+                $scope.time=new Date().toLocaleTimeString();
+             },1000)
+        })
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1st Example -->
+    <label for="name">Enter Your Name</label>
+    <input type="text" name="Name" id="name" ng-model="name">
+    <p>Hello! {{name}}</p>
+
+
+
+
+    <!-- 2nd Example -->
+    <div ng-app = "">
+        <label for="name">Enter Your City Name</label>
+        <input type="text" name="Name" id="name" ng-model="city">
+        <p>Hello World<span ng-bind="city"></span></p>
+    </div>
+
+
+
+
+
+
+    
+
+    <!-- 3rd Example -->
+
+    <div ng-app = "">
+        <p ng-init  = "first_name = 'John'"></p>
+        <p> The name is:{{first_name}}</p>
+    </div>
+
+
+
+
+    <!-- 4th Example -->
+    <div ng-app = "">
+        <p>My first Expression: {{5+5}}</p>
+    </div>
+
+
+
+
+    
+
+    <!-- 5th Example -->
+
+    <!-- <div ng-app = "" ng-init = "name = 'red'">
+        <input style="background-color:{{name}}" type="text" ng-model = "name">
+        <p >Some para {{name}}</p>
+
+
+    </div> -->
+    <div ng-app="" ng-init="myCol='red'">
+
+        <input style="background-color:myCol" ng-model="myCol">
+        <p>AngularJS resolves the expression and returns the result {{myCol}}.</p>
+        
+        
+        </div>
+
+
+
+    <script src="angular.js"></script>
+</body>
+
+</html>

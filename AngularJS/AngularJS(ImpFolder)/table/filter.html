@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="index.js"></script>
+
+
+</head>
+<body ng-app="mdr" ng-controller="ctr">
+  <input type="number" min="0" max="6" ng-model="num"><br><br>
+  <form>
+    <div class="form-group">
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search here" ng-model="search">
+  
+    </div>
+    </form>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th></th>Name</th>
+        <th>Dob</th>
+        <th>Gender</th>
+        <th>Fees</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in names|filter:search|limitTo:num">
+        <td>{{x.Name}}</td>
+        <td>{{x.Dob|date:"dd/MM/yyyy"}}</td>
+        <td>{{x.Gender|myFilter}}</td>
+        <td>{{x.Fees}}</td>
+        <td><img src="{{x.status}}" alt="" width="20px" height="20px"></td>
+        <td><button class="btn btn-primary" ng-click="increment(x)">Paid</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <p>{{img}}</p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <script src="angular.js"></script>
+    <h1>ANGULAR JS EXPRESSION EXAMPLES</h1>
+    <!-- Example 1 -->
+    <div ng-app="">
+        <p>My first expression: {{ 5 + 5 }}</p>
+    </div>
+    <!-- Example 2       -->
+    <p>According to color name to Change input values</p>
+    <div ng-app="" ng-init="col = 'red'">
+        <input type="text" ng-model="col" style="background-color: {{col}};">
+        <p>Change colors: {{col}}</p>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "angular.js"></script>
+    <style>
+        input.ng-invalid{
+            background-color: red;
+        }
+        input.ng-valid{
+            background-color: green;
+        }
+    </style>
+</head>
+<body ng-app = "">
+
+    <form action="" name = "myForm">
+        <!-- <input type="email" name = "myInput" ng-model = "myinput" required>
+        <p>Input's valid state is: </p>
+        <h1>{{myForm.myInput.$valid}}</h1> -->
+
+        UserName <input type="text" name = "my_input"  ng-model = "my_input" required>
+        <h1>{{myForm.my_input.$valid}}</h1>
+
+    </form>
+    
+</body>
+</html>

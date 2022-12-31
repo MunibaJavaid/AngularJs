@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "angular.js"></script>
+</head>
+<body>
+
+    <!-- <div ng-app = "myApp" ng-controller = "myCtr">
+        <button type="button" ng-click = "count = count + 1">Count</button>
+        <p>{{count}}</p>
+    </div> -->
+    
+
+    <!-- <div ng-app = "myApp" ng-controller = "ctr">
+        <button type = "button" ng-click = "increment()">Increment</button>
+        <button type="button" ng-click = "reset()">Reset</button>
+        <h1>{{a}}</h1>
+    </div> -->
+
+<div ng-app = "MyApp" ng-controller = "ctr">
+
+    <button type="button" ng-click = "myFunc()">Show List</button>
+
+    <div ng-show = "showMe">
+        <h1>Menu</h1>
+        <div>Pizza</div>
+        <div>Pasta</div>
+        <div>Burger</div>
+
+    </div>
+
+</div>
+
+
+<script>
+    var app = angular.module("MyApp",[])
+    app.controller("ctr",function($scope){
+        $scope.showMe = false;
+
+        $scope.myFunc = function(){
+            $scope.showMe = !$scope.showMe;
+        }
+    });
+</script>
+
+    <!-- <script>
+        var app = angular.module("myApp",[])
+        app.controller("ctr",function($scope){
+            $scope.a = 0;
+
+            $scope.increment = function(){
+                $scope.a++;
+            }
+
+            $scope.reset = function(){
+                $scope.a = 0;
+            }
+        })
+    </script> -->
+    <!-- <script>
+
+        var app = angular.module("myApp",[]);
+        app.controller("myCtr",function($scope){
+            $scope.count = 0;
+        })
+    </script> -->
+</body>
+</html>

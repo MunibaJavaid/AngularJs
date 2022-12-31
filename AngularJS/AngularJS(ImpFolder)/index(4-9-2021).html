@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <script src = "angular.js"></script>
+</head>
+<body>
+    <div class="container border border-primary">
+
+        <div>
+            <h3>Without ng app</h3>
+            <p>{{10+20}}</p>
+        </div>
+
+    
+    <div ng-app = "">
+        <h3>Using Ng App</h3>
+
+        <h4>Example 1</h4>
+        <p>{{20+90}}</p>
+
+        <h4>Example 2</h4>
+        
+        <div ng-init = "colored = 'orange'"> 
+            <label for="color">Enter Your Color Name</label>
+            <input type="text" name="color" id="color" ng-model = "colored" class="form-control"
+            style="background-color: {{colored}};">
+            <p>Color Name {{colored}}</p>
+        </div>
+
+        <h4>Example 3</h4>
+        <div ng-init = "x = 5;y=8">
+            <p class="font-weight-bold">Perform Some Airthmatic Operations using X and Y <br>
+                {{"Sum of X+Y is: "+ (x+y)}} <br> {{"Multiply of X*Y: "+ (x*y)}}
+            </p>
+        </div>
+
+        <h4>Example 4</h4>
+        <div ng-init = "a,b">
+
+            Enter First Number: <input type="number" name="First_Number" id="first" ng-model = "a">
+            Enter Second Number: <input type="number" name="Second_Number" id="second" ng-model = "b">
+            <p class="font-weight-bold">
+                First number of "a" is {{a}} and Second number of "b" is {{b}} = {{a*b}}
+            </p>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+    <script src = "bootstrap-4.6.0-dist/js/jquery-3.5.1.slim.min.js"></script>
+    <script src = "bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

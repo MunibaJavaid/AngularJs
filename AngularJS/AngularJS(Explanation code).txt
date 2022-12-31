@@ -1,0 +1,52 @@
+MVC pattern se hmare pas ye asasni hoti hai jo hmarri html hoti 
+hai or jo bussiness logic hoti hai wo separte hojati hai..
+
+Routing hmare url ke change hone pr hmara view change ho raha hota hai.
+
+Angular JS mai hmare pas bht sari built in services hain jis hmari web
+application development easy hojati hai.
+
+Angular JS 2 way data biniding ke concept ko support karta hai. Jis ke
+liye itna samjh len jo hmari web page ki input hoti hai unko or jo hmara
+data hota hai unko unke darmyan binding easily kar sakte hain
+
+ANgular Js ke framework ki testing bht zyada eassy hojati hai because model 
+view controller
+
+Angular Js mai bht sare builtin filters hai jo different operations perform karne 
+ke liye bht eassy hote hain for eg(sorting, searching).
+
+
+MVC ARCHITECTURE:
+Application logic and user interface layer ko seprately karde ga
+dono ko mix nahi hone de ga is se hoga ye jb hm application bnaye ge
+us mai jo data hai us ko or jo application logic hai usko maintain karna
+hmare liye bht eassy hojata hai.
+
+Model data ko handle karne ke liye kaam ata hai most of the cases mai model
+hmara database hota hai agr hm server side application ki bt karen for asp
+or php.
+
+Agr hm bt kare model to wo server side pr to ek database hoga lekin abhi 
+hm bt kar rehe hain client side pr to database nahi agr hme data store karana
+hota hai client side pr to hmare pas object hota hai array hota hai or variable
+mai datastore horaha hota hai.
+
+Esa code jo model ke sth interact kare ga or view ko data dikhaye ga wo
+hmara hoga controller
+
+or view hmare pas jo html css ki layer hogi wo hogi
+
+ANGULAR JS DIRECTIVES:
+Angular JS ki jo directives hoti hai wo html mai hm as an attribute use karte
+hain.
+Ye ek special traha ke attributes hote hain jin ka name ng se start hote hain.
+ng angular ki short form hai jis se browser ko ye pta chalta hai ye html
+ke attributes nahi hai blke angular ki directives hain jise angular handle
+karle ga.
+
+ng-app diective angular application ko start karta hai html ke page ke andr
+ng-model jo hm input fields mai value dete han wo data ke sth bind kardeta hai
+jo hm variable mai assign karte hain.
+
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <script src="angular.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container" ng-app = "myApp" ng-controller = "ctr">
+        <h1>TABLE</h1>
+
+        <input type="text" placeholder="search" class="form-control mt-3 mb-3" ng-model = "n">
+
+        <input type="number" min = "1" max = "5" class="form-control mt-3 mb-3" ng-model = "m">
+
+    <table class="table table-bordered table-hover table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Education</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Date</th>
+            <th>Salary</th>
+            
+        </tr>
+        <tr ng-repeat = "x in employee |filter:n| limitTo:m |orderBy:'-Salary'">
+            <td>{{x.Name | uppercase}}</td>
+            <td>{{x.Education | lowercase}}</td>
+            <td>{{x.Age}}</td>
+            <td>{{x.Gender |myFilter}}</td>
+            <td>{{x.dob |date: "longDate"}}</td>
+            <td>{{x.Salary | currency: "RS: "}}</td>
+        </tr>
+    </table>
+</div>
+    
+    <script>
+        var app = angular.module("myApp",[])
+
+        app.controller("ctr", function($scope){
+            $scope.employee = [
+                {Name:"Asad",Age:"24",Education:"Inter",Salary:"20000",dob: new Date("August,15,2002"),Gender:"Male"},
+                {Name:"Sadia",Age:"25",Education:"matric",Salary:"30000",dob: new Date("September,16,2005"),Gender:"Female"},
+                {Name:"Fahad",Age:"28",Education:"Graduate",Salary:"40000",dob: new Date("October,17,2008"),Gender:"Male"},
+                {Name:"Ayesha",Age:"25",Education:"matric",Salary:"50000",dob: new Date("November,18,2009"),Gender:"Female"},
+                {Name:"Bilal",Age:"28",Education:"Graduate",Salary:"60000",dob: new Date("December,19,2001"),Gender:"Male"}
+                
+            ]
+        })
+
+            app.filter("myFilter",function(){
+            return function(gender){
+                switch(gender){
+                    case "Male":
+                        return "M" 
+                    case "Female":
+                        return "F"
+                }
+            }
+        })
+       
+    </script>
+
+<script src = "bootstrap-4.6.0-dist/js/jquery-3.5.1.slim.min.js"></script>
+<script src = "bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

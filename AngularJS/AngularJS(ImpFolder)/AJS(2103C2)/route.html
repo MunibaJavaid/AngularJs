@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "angular.js"></script>
+    <script src ="angular-route.js"></script>
+</head>
+<body ng-app = "myApp">
+
+    <div>
+        <ul>
+            <li> <a href="#/">Home</a> </li>
+            <li> <a href="#!/About">About</a> </li>
+            <li> <a href="#!/contact">Contact</a> </li>
+        </ul>
+    </div>
+
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam labore veniam ipsa nobis rem. Libero praesentium, odit deserunt dolorem consequuntur facere, facilis ex et deleniti beatae aliquid eveniet nam alias.</p>
+    
+    <div class = "ng-view">
+
+    </div>
+
+
+    <script>
+        var app = angular.module("myApp",['ngRoute']);
+        app.config(["$routeProvider",function($routeProvider){
+            
+            $routeProvider
+
+            .when("/",{
+                templateUrl: "pages/home.html"
+            })
+            .when("/About",{
+                templateUrl: "pages/About.html"
+
+            })
+            .when("/contact",{
+                templateUrl: "pages/contact.html"
+            })
+
+
+        }])
+    </script>
+</body>
+</html>

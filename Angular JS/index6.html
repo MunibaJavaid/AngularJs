@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <!-- one-way data binding -->
+
+    <!-- <div ng-app="mod" ng-controller="ctr">
+          <h1 ng-bind="a"></h1>
+    </div>
+    <script>
+        var app=angular.module("mod",[]);
+        app.controller("ctr",function($scope){
+              $scope.a="Hello world Whats up"
+        })
+    </script> -->
+<!--   Two way data-binding -->
+    <div ng-app="mod" ng-controller="ctr">
+        Enter your name: <input type="text" name="" id="" ng-model="a">
+          <h1 >Hello! {{a}}</h1>
+    </div>
+    <script>
+        var app=angular.module("mod",[]);
+        app.controller("ctr",function($scope){
+              $scope.a="Ayman"
+        })
+    </script>
+</body>
+</html>

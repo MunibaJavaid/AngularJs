@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="angular.js"></script>
+    <style>
+        .breaking {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div ng-app="myApp">
+
+        <!-- <div ng-controller = "myctr">
+        <h1>{{url}}</h1>
+        <h1>{{host}}</h1>
+        <h1>{{port}}</h1>
+        <h1>{{protocol}}</h1>
+    </div>
+
+
+
+    <div ng-controller = "ctr1">
+
+
+        <h3>{{msg}}</h3>
+        <img src="{{img}}" alt="image">
+
+    </div> -->
+
+
+        <div ng-controller="ctr2">
+            <h3>{{z}}</h3>
+            <h1>{{a}}</h1>
+        </div>
+
+
+        <div ng-controller="ctr3">
+
+            <p class="breaking">breaking news! {{item}}</p>
+
+        </div>
+
+
+        <div ng-controller="ctr4">
+
+            <h1>{{msg}}</h1>
+
+        </div>
+
+
+        <div ng-controller="ctr5">
+
+            <h1>{{getting}}</h1>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+        var app = angular.module("myApp", [])
+
+        //location Service
+        app.controller("myctr", function ($scope, $location) {
+            $scope.url = $location.absUrl()
+            $scope.host = $location.host()
+            $scope.port = $location.port()
+            $scope.protocol = $location.protocol()
+        })
+        //TimeOut Services
+        app.controller("ctr1", function ($scope, $timeout) {
+            $scope.msg = "i will disappear after 5 sec ";
+            $scope.img = "smile.gif";
+            $timeout(function () {
+                $scope.msg = "I am disappear";
+                $scope.img = "sad.jpg";
+            }, 10000)
+
+        })
+
+        // Interval Service Example 1
+
+        app.controller("ctr2", function ($scope, $interval) {
+            $scope.z = "Counter Start";
+            $scope.a = 0;
+
+            $interval(function () {
+                $scope.a++
+            }, 50)
+        })
+
+        //Interval Service Example 2
+
+        app.controller("ctr3", function ($scope, $interval) {
+            $scope.news = [
+                "B.Tech Graduate Getting Salary of Rs 50000 per month",
+                "MBA Graduate Not Even able to pay there educatio loan",
+                "Banks with huge losses providing Job"]
+            $scope.item = "";
+            $scope.index = 0;
+
+            $interval(function () {
+                if ($scope.index < $scope.news.length) {
+                    $scope.item = $scope.news[$scope.index];
+                    $scope.index++
+
+
+                }
+                else {
+                    $scope.index = 0;
+                }
+            }, 2000)
+        })
+
+        //Http Services
+        app.controller("ctr4", function ($scope, $http) {
+            $http.get("welcome.txt").then(response => {
+                $scope.msg = response.data;
+            })
+
+        })
+
+
+
+        app.controller("ctr5", function ($scope, $http) {
+            $http.get("https://api.openweathermap.org/data/2.5/weather?q=karachi,pakistan&APPID=5d6d6fb5ed12acb81699cf8350c1455d").then(response => {
+                $scope.getting = response.data;
+            })
+
+        })
+
+        
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

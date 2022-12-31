@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container" ng-app="mod" ng-controller="ctr">
+        <div class="row">
+            <div class="col-lg-3" ng-repeat = "x in flowers" >
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{x.imgsrc}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{x.name}}</h5>
+                        <p class="card-text">{{x.description}}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var app = angular.module("mod", []);
+        app.controller("ctr", function ($scope) {
+            $scope.flowers = [
+                { name: "Flower1", imgsrc: "img.jpeg", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, consequuntur perferendis accusantium tempora deleniti, ad impedit nemo omnis, cum dolor nihil aspernatur odio unde? Sunt excepturi deserunt quibusdam hic veritatis?" },
+                { name: "Flower2", imgsrc: "img.jpeg", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, consequuntur perferendis accusantium tempora deleniti, ad impedit nemo omnis, cum dolor nihil aspernatur odio unde? Sunt excepturi deserunt quibusdam hic veritatis?" },
+                { name: "Flower3", imgsrc: "img.jpeg", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, consequuntur perferendis accusantium tempora deleniti, ad impedit nemo omnis, cum dolor nihil aspernatur odio unde? Sunt excepturi deserunt quibusdam hic veritatis?" },
+                { name: "Flower4", imgsrc: "img.jpeg", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, consequuntur perferendis accusantium tempora deleniti, ad impedit nemo omnis, cum dolor nihil aspernatur odio unde? Sunt excepturi deserunt quibusdam hic veritatis?" }
+            ];
+        })
+    </script>
+</body>
+
+</html>

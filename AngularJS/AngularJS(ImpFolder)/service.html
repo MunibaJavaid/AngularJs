@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "angular.js"></script>
+    <style>
+        .breaking{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div ng-app = "loc"> 
+
+
+        <div ng-controller = "ctr">
+            <p>{{url}}</p>
+            <p>{{host}}</p>
+            <p>{{port}}</p>
+            <p>{{protocol}}</p>
+        </div>
+
+
+        <div ng-controller = "ctr1">
+            <h3>{{msg}}</h3>
+            <img src="{{img}}" alt="Images">
+
+        </div>
+
+        <div ng-controller = "ctr2">
+            <p>{{a}}</p>
+            <p>{{count}}</p>
+
+        </div>
+
+
+        <div ng-controller = "ctr3">
+
+            <p class="breaking">Breaking News: {{item}} </p>
+
+        </div>
+
+
+        <div ng-controller = "ctr4">
+            <p>{{z}}</p>
+
+        </div>
+    </div>
+
+    <script>
+
+        var app = angular.module("loc",[])
+
+        //location Service
+        app.controller("ctr",function($scope,$location){
+            $scope.url = $location.absUrl();
+            $scope.host = $location.host();
+            $scope.port = $location.port();
+            $scope.protocol = $location.protocol();
+        })
+        //timeout service
+        app.controller("ctr1",function($scope,$timeout){
+            $scope.msg = "I will disappear after 5 sec";
+            $scope.img = "smile.gif";
+
+            $timeout(function(){
+                $scope.msg = "I am disappear";
+                $scope.img = "sad.jpg";
+
+            },10000)
+
+        })
+
+        //interval Service
+
+        app.controller("ctr2",function($scope,$interval){
+            $scope.a = "Counter Start"
+            $scope.count = 0;
+            $interval(function(){
+                $scope.count++
+            },50)
+
+        })
+
+        app.controller("ctr3",function($scope,$interval){
+            $scope.news = ["B.Tech Graduate Getting Salary of Rs 50000 per month",
+            "MBA Graduate Not Even able to pay there educatio loan",
+            "Banks with huge losses providing Job"
+
+            ]
+            $scope.item = "";
+            $scope.index = 0;
+
+            $interval(function(){
+                if($scope.index<$scope.news.length){
+                    $scope.item = $scope.news[$scope.index];
+                    $scope.index++
+
+                }
+                else{
+                    $scope.index =  0;
+                }
+            },2000)
+    
+
+
+        //http Service
+        app.controller("ctr4",function($scope,$http){
+            $http.get("welcome.txt").then(response =>{
+                console.log(response.data);
+                $scope.z = response.data; 
+            })
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "angular.js"></script>
+</head>
+<body>
+
+
+
+    <div ng-app = "myApp">
+
+        <div my-Custom-Directive></div>
+
+        <my-Custom-Directive></my-Custom-Directive>
+
+    </div>
+
+   
+
+
+
+
+
+    <script>
+        var app = angular.module("myApp",[])
+        app.directive("myCustomDirective",function(){
+            return{
+                restrict: "AE",
+                template:"<h1>Hello Angular JS</h1>"
+            }
+        })
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

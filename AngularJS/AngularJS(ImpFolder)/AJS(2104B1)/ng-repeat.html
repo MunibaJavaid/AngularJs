@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "angular.js"></script>
+    <link rel="stylesheet" href="bootstrap-4.6.0-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- <div ng-app = "myApp" ng-controller = "ctr">
+        <h1>Angulart JS Ng-Repeat</h1>
+        <ul ng-repeat = "x in a">
+            <li>{{x}}</li>
+        </ul>
+    </div> -->
+
+    <!-- table -->
+     <div class="container border border-primary" ng-app = "tab" ng-controller = "ctr2">
+
+        <input type="text" placeholder="search" ng-model = "nm" class="form-control mt-5 mb-5">
+
+        <input type="number" min = "1" max = "4" class="form-control mt-5" ng-model = "mm">
+
+     <table class = "table table-bordered table-hover table-striped">
+
+
+         <tr>
+             <th>Name</th>
+             <th>Salary</th>
+             <th>Education</th>
+             <th>Gender</th>
+             <th>Date</th>
+             <th>Status</th>
+
+         </tr>
+         <tr ng-repeat = "a in employee |filter:nm | limitTo: mm|orderBy:Name">
+             <td>{{a.Name | uppercase}}</td>
+             <td>{{a.Salary | currency: "RS: "}}</td>
+             <td>{{a.Education | lowercase}}</td>
+             <td>{{a.Gender}}</td>
+             <td>{{a.date | date: "fullDate"}}</td>
+             <td> <img src="{{a.status}}" alt="img" width = "50" height = "50"> </td>
+             <td><button type="button" class = "btn btn-primary"  ng-click = "increment(a)">Paid</button></td>
+
+         </tr>
+
+     </table>
+    </div>
+
+
+
+    <!-- <script>
+        var app = angular.module("myApp",[]);
+        app.controller("ctr",function($scope){
+            $scope.a = ["Mon","Tue","Wed","Thurs","Fri"];
+        })
+    </script> -->
+
+
+    <script>
+        var app = angular.module("tab",[]);
+        app.controller("ctr2",function($scope){
+            $scope.employee = [{Name:"John",Education:"Inter",Salary:"25000",Gender:"Male", date: new Date("September 14,2005"),status:"cross.png"},
+            {Name:"Dalton",Education:"matric",Salary:"25000",Gender:"Male",date: new Date("October 15,2008"),status:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMfKAGz8EbZZSY0Ip6i-a7-GccJrY1OpbBEg&usqp=CAU"},
+            {Name:"Harry",Education:"BS",Salary:"25000",Gender:"Male",date: new Date("November 14,2009"),status:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMfKAGz8EbZZSY0Ip6i-a7-GccJrY1OpbBEg&usqp=CAU"},
+            {Name:"Jerry",Education:"Master",Salary:"25000",Gender:"Male",date: new Date("September 14,2005"),status:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMfKAGz8EbZZSY0Ip6i-a7-GccJrY1OpbBEg&usqp=CAU"}]
+        
+        $scope.mm = 2;
+
+
+        $scope.increment = function(a){
+            a.status = "https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/checkmark-24-512.png"
+
+        }
+        })
+
+        
+        
+    </script>
+
+    <script src = "bootstrap-4.6.0-dist/js/jquery-3.5.1.slim.min.js"></script>
+    <script src = "bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <script src = "angular.js"></script>
+</head>
+<body>
+    <div ng-app = "myApp" ng-controller = "ctr" class = "container">
+        <h1>Angular JS FILTER</h1>
+        <input type="text" placeholder="Search Here" class="form-control" ng-model = "sear">
+        <input type="number" min = "1" max = "5" ng-model = "nm" class="form-control mt-3">
+    <table class="table table-bordered table-hover table-striped mt-5">
+        <tr>
+            <th>Name</th>
+            <th>Dob</th>
+            <th>Gender</th>
+            <th>Salary Number</th>
+            <th>Salary Currency</th>
+        </tr>
+        <tr ng-repeat = "x in employee |filter:sear |limitTo:nm |orderBy: '-Name'">
+            <td>{{x.Name | uppercase}}</td>
+            <td>{{x.Dob | date: "dd/MM/yyyy"}}</td>
+            <td>{{x.Gender | myFilter |lowercase }}</td>
+            <td>{{x.Salary | number:0}}</td>
+            <td>{{x.Salary |currency: "RS: "}}</td>
+            
+        </tr>
+
+    </table>
+</div>
+    <script>
+        var app = angular.module("myApp",[])
+        app.controller("ctr",function($scope){
+            $scope.employee = [{Name:"Fahad",Dob: new Date("August 13,2004"),Gender:"Male",Salary:"45000" },
+            {Name:"Ahad",Dob: new Date("September 14,2005"),Gender:"Male",Salary:"45000"},
+            {Name:"Fatima",Dob: new Date("October 15,2006"),Gender:"Female",Salary:"45000"},
+            {Name:"Saad",Dob: new Date("November 23,2007"),Gender:"Male",Salary:"45000"},
+            {Name:"Bushra",Dob: new Date("December, 27,2008"),Gender:"Female",Salary:"45000"}]
+
+            $scope.nm=2
+        })
+        app.filter("myFilter",function(){
+            return function(gender){
+                switch(gender){
+                    case "Male":
+                        return "M"
+                    case "Female":
+                        return "F"
+                }
+            }
+        })
+
+    // app.filter("myFilter",function(){
+        //     return function(gender){
+        //         switch(gender){
+        //             case "Male":
+        //                 return "M"
+        //             case "Female":
+        //                 return "F"
+        //         }
+        //     }
+        // })
+        
+      
+    </script>
+
+
+
+
+    <script src = "bootstrap-4.6.0-dist/js/jquery-3.5.1.slim.min.js"></script>
+    <script src = "bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

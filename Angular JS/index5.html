@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        table{
+            border-collapse: collapse;
+            background-color: coral;
+        }
+        th,tr,td{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+               <!-- Example 1 -->
+    <div ng-app="mod" ng-controller="ctr">
+        <ul ng-repeat="x in names">
+            <li>{{x}}</li>
+        </ul>
+ </div>
+    <script>
+         var app=angular.module("mod",[]);
+        app.controller("ctr",function($scope){
+                 $scope.names=[
+                     "C","C++","Python"
+                 ]
+        })
+    </script>
+       <!-- Example 2 -->
+       <!-- <div ng-app="mod" ng-controller="ctr">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>name</th>
+                <th>Percentage</th>
+            </tr>
+            <tr ng-repeat="x in names">
+                <td>{{x.Id}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.Percentage}}</td>
+            </tr>
+        </table>
+ </div>
+ <script>
+  var app=angular.module("mod",[]);
+ app.controller("ctr",function($scope){
+          $scope.names=[
+              {Id:"01",name:"Asad",Percentage:"80%"},
+              {Id:"02",name:"Ahsan",Percentage:"90%"}
+          ];
+ })
+</script> -->
+</body>
+</html>
+
+
+
